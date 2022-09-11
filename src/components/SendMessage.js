@@ -6,8 +6,8 @@ import Picker from "@emoji-mart/react";
 import emoji from "../assests/emoji.png";
 
 const style = {
-  form: `h-14 w-full max-w-[728px]  flex text-xl absolute bottom-0`,
-  input: `w-full text-xl p-3 bg-gray-900 text-white outline-none border-none rounded-xl focus:outline-none focus:ring focus:ring-white-300 focus:bg-gray-300 focus:text-black-900 `,
+  form: `h-14 w-full max-w-[728px]  flex text-xl fixed bottom-0`,
+  input: `w-full text-xl p-3 bg-gray-900 text-white outline-none border-none rounded-xl  `,
   button: `w-[20%] bg-green-500 rounded-full font-bold hover:bg-green-700`,
   emoji: `w-11 h-11`,
   picker: `fixed top-[200px] `,
@@ -59,7 +59,7 @@ const SendMessage = ({ scroll }) => {
         onChange={(e) => setInput(e.target.value)}
         className={style.input}
         type="text"
-        placeholder="Message"
+        placeholder="Type a message"
       />
       <button className={style.button} onClick={sendMessage}>
         Send

@@ -5,7 +5,7 @@ import { db } from '../firebase';
 import { query, collection, orderBy, onSnapshot } from 'firebase/firestore';
 
 const style = {
-  main: `flex flex-col p-[10px]`,
+  main: `flex flex-col p-[10px] h-3/6 mb-[50px]`,
 };
 
 const Chat = () => {
@@ -19,6 +19,7 @@ const Chat = () => {
       querySnapshot.forEach((doc) => {
         messages.push({ ...doc.data(), id: doc.id });
       });
+      console.log(messages)
       setMessages(messages);
     });
     return () => unsubscribe();
@@ -29,7 +30,8 @@ const Chat = () => {
       <main className={style.main}>
         {messages &&
           messages.map((message) => (
-            <Message key={message.id} message={message} />
+            <Message key={message.id} message={message} messages={messages}/>
+            
           ))}
       </main>
       {/* Send Message Compoenent */}
